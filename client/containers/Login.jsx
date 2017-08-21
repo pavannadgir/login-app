@@ -6,10 +6,6 @@ import {validateUser} from '../actions/index';
 class Login extends Component{
   constructor(props){
     super(props);
-    this.state = {
-      username : '',
-      password : ''
-    }
   }
   componentWillReceiveProps(nextProps) {
     let {loginFlag,errorMsg} = nextProps.loginFields;
@@ -19,7 +15,7 @@ class Login extends Component{
 }
   validateUser(e){
     e.preventDefault();
-    this.props.validateUser(this.state.username,this.state.password);
+    this.props.validateUser(this.refs.email.value,this.refs.password.value);
   }
   render(){
     return(
@@ -28,10 +24,10 @@ class Login extends Component{
           <div className="card-body">
             <h2>Login</h2>
             <div className="form-group">
-              <label className="form-label">Email</label><input type="email" className="form-control" value={this.state.username} onChange={(event) => this.setState({username : event.target.value})} />
+              <label className="form-label">Email</label><input type="email" ref="email" className="form-control" />
             </div>
             <div className="form-group">
-              <label className="form-label">Password</label><input type="password" className="form-control" value={this.state.password} onChange={(event) => this.setState({password : event.target.value})}/>
+              <label className="form-label">Password</label><input type="password" ref="password" className="form-control" />
             </div>
             <p className="text-danger">{this.props.loginFields.errorMsg}</p>
             <button className="btn btn-primary" onClick={event => this.validateUser(event)}>Login</button>
