@@ -7,7 +7,8 @@ var config = {
    },
 
    devServer: {
-      contentBase: "./client"
+      contentBase: "./client",
+      historyApiFallback: true
    },
 
    module: {
