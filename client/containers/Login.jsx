@@ -8,8 +8,7 @@ class Login extends Component{
     super(props);
     this.state = {
       username : '',
-      password : '',
-      errorMsg : ''
+      password : ''
     }
   }
   componentWillReceiveProps(nextProps) {
