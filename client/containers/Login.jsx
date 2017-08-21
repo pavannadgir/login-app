@@ -13,11 +13,9 @@ class Login extends Component{
     }
   }
   componentWillReceiveProps(nextProps) {
-    if(nextProps.loginFlag){
+    let {loginFlag,errorMsg} = nextProps.loginFields;
+    if(loginFlag){
       this.props.history.push('/aboutus')
-    }
-    else {
-      this.props.history.push('/')
     }
 }
   validateUser(e){
@@ -35,7 +33,7 @@ class Login extends Component{
         <div className="form-group">
           <label className="form-label">Password</label><input type="password" className="form-control" value={this.state.password} onChange={(event) => this.setState({password : event.target.value})}/>
         </div>
-        <div>{this.state.errorMsg}</div>
+        <p className="text-danger">{this.props.loginFields.errorMsg}</p>
         <button className="btn btn-primary" onClick={event => this.validateUser(event)}>Login</button>
         </div>
       </div>
@@ -45,7 +43,7 @@ class Login extends Component{
 
 function mapStateToProps(state){
 return{
-  loginFlag: state
+  loginFields: state.validateReducer
   }
 }
 
