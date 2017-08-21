@@ -25,16 +25,18 @@ class Login extends Component{
   render(){
     return(
       <div className="container">
-        <div className="well">
-          <h2>Login</h2>
-        <div className="form-group">
-          <label className="form-label">Email</label><input type="email" className="form-control" value={this.state.username} onChange={(event) => this.setState({username : event.target.value})} />
-        </div>
-        <div className="form-group">
-          <label className="form-label">Password</label><input type="password" className="form-control" value={this.state.password} onChange={(event) => this.setState({password : event.target.value})}/>
-        </div>
-        <p className="text-danger">{this.props.loginFields.errorMsg}</p>
-        <button className="btn btn-primary" onClick={event => this.validateUser(event)}>Login</button>
+        <div className="card">
+          <div className="card-body">
+            <h2>Login</h2>
+            <div className="form-group">
+              <label className="form-label">Email</label><input type="email" className="form-control" value={this.state.username} onChange={(event) => this.setState({username : event.target.value})} />
+            </div>
+            <div className="form-group">
+              <label className="form-label">Password</label><input type="password" className="form-control" value={this.state.password} onChange={(event) => this.setState({password : event.target.value})}/>
+            </div>
+            <p className="text-danger">{this.props.loginFields.errorMsg}</p>
+            <button className="btn btn-primary" onClick={event => this.validateUser(event)}>Login</button>
+          </div>
         </div>
       </div>
     )
